@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class NumberAnalyzer {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        String continueInput;
+        do {
+            System.out.println("Enter a number: ");
+            numbers.add(scanner.nextInt());
+
+            System.out.println("Do you want to continue? (yes/no): ");
+            continueInput = scanner.next();
+        } while (continueInput.equalsIgnoreCase("yes"));
+
+        int sum = 0;
+        int min = numbers.get(0);
+        int max = numbers.get(0);
+
+        for (int number : numbers) {
+            sum += number;
+            if (number < min) {
+                min = number;
+            }
+            if (number > max) {
+                max = number;
+            }
+        }
+
+        double average = (double) sum / numbers.size();
+
+        System.out.println("The smallest number entered is: " + min);
+        System.out.println("The largest number entered is: " + max);
+        System.out.println("The average of all numbers entered is: " + average);
+
+        scanner.close();
+    }
+}
