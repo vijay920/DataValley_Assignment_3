@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class DiscountCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the quantity of items purchased: ");
+        int quantity = scanner.nextInt();
+
+        System.out.println("Enter the price per item: ");
+        double pricePerItem = scanner.nextDouble();
+
+        double discount;
+        if (quantity > 50) {
+            discount = 0.10; // 10% discount
+        } else if (quantity >= 25) {
+            discount = 0.05; // 5% discount
+        } else {
+            discount = 0; // no discount
+        }
+
+        double totalExpense = quantity * pricePerItem * (1 - discount);
+
+        System.out.println("The total expense is: " + totalExpense);
+
+        scanner.close();
+    }
+}
